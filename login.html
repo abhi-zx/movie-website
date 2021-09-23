@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .signup{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width:350px;
+            height:400px;
+            background-color:rgb(218, 138, 47);
+        }
+        .inpu{
+            width:240px;
+            height:40px;
+            margin-bottom: 20px;
+            
+        }
+        .inpu input {
+          
+            width:100%;
+            height:100%
+        }
+        .btn{
+            width: 150px;
+            height:40px
+        }
+        .btn button{
+            width:100%;
+            height:100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+       <form>
+        <div class="signup">
+            <h1>Login</h1>
+            <!-- <div class="name inpu">
+               
+                <input id='name1' type="text"placeholder=" Enter Username"required>
+            </div> -->
+          
+            <div class="email inpu">
+          
+                <input id='email1' type="text" placeholder="Enter Email Id"required>
+            </div>
+     
+            <div class="pass inpu">
+            
+                <input id='pass1' type="text" placeholder=" Enter Password"required>
+            </div>
+            <div class="phone inpu">
+           
+                <input id='phone1' type="number" placeholder="Phone Number" required>
+            </div>
+            
+            <div class="btn">
+                <button id='btn1'> Login</button>
+            </div>
+
+            <div class="para">
+                <p>Not have an account ?<a href="#">Sign Up</a></p>
+            </div>
+        </div>
+    </form>
+    </div>
+    <script>
+ var btn1 = document.getElementById("btn1");
+ btn1.addEventListener("click", function(e) {
+     check(e)
+ });
+ function check(e) {
+     e.preventDefault();
+//  var phone1 = document.getElementById("phone1").value;
+ var email1 = document.getElementById("email1").value;
+
+//  var name1 = document.getElementById("name1").value;
+ var pass1 = document.getElementById("pass1").value;
+
+ let users = JSON.parse(localStorage.getItem('users'));
+//  console.log(users)
+users.forEach( function(user) {
+    if(email1 == user.email && pass1 == user.password){
+        alert("logged in")
+        
+    }
+   
+})
+
+ }
+    </script>
+</body>
+</html>
