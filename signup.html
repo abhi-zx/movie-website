@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .signup{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width:350px;
+            height:400px;
+            background-color:rgb(218, 138, 47);
+        }
+        .inpu{
+            width:240px;
+            height:40px;
+            margin-bottom: 20px;
+            
+        }
+        .inpu input {
+          
+            width:100%;
+            height:100%
+        }
+        .btn{
+            width: 150px;
+            height:40px
+        }
+        .btn button{
+            width:100%;
+            height:100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+       <form>
+        <div class="signup">
+            <h1>Sign Up</h1>
+            <div class="name inpu">
+                <!-- <label for="">Name</label> -->
+                <input id='name1' type="text"placeholder="Name"required>
+            </div>
+          
+            <div class="email inpu">
+             <!-- <label for="">Email Id</label> -->
+                <input id='email1' type="text" placeholder="email@example.com"required>
+            </div>
+     
+            <div class="pass inpu">
+             <!-- <label for="">Password</label> -->
+                <input id='pass1' type="text" placeholder="Password"required>
+            </div>
+            <div class="phone inpu">
+             <!-- <label for="">Phone Number</label> -->
+                <input id='phone1' type="number" placeholder="Phone Number" required>
+            </div>
+            <div class="para inpu">
+                <p>Need to agree with <a href="#"> Terms & Conditions</a></p>
+            </div>
+            <div class="btn">
+                <button id='btn1'>Create Account</button>
+            </div>
+
+            <div class="para">
+                <p>Already have an account ?<a href="#">Login</a></p>
+            </div>
+        </div>
+    </form>
+    </div>
+    <script>
+ var btn1 = document.getElementById("btn1");
+ btn1.addEventListener("click", function(e) {
+     create(e)
+ });
+ function create(e) {
+     e.preventDefault();
+ var phone1 = document.getElementById("phone1").value;
+ var email1 = document.getElementById("email1").value;
+ var name1 = document.getElementById("name1").value;
+ var pass1 = document.getElementById("pass1").value;
+ if(localStorage.getItem('users')==null){
+     localStorage.setItem('users',JSON.stringify([]))
+ }
+
+let user={
+    phone:phone1,
+    email:email1,
+    name:name1,
+    password:pass1
+}
+// console.log(users)
+let arr = JSON.parse(localStorage.getItem('users'));
+arr.push(user);
+localStorage.setItem('users',JSON.stringify(arr));
+ }
+    </script>
+</body>
+</html>
