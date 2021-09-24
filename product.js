@@ -86,6 +86,35 @@ if (localStorage.getItem('movies') == null) {
 var list = JSON.parse(localStorage.getItem('movies'))
 // console.log(list);
 list.forEach(function(product) {
+  var products= document.getElementById('products')
+
+    var div = document.createElement('div')
+    div.setAttribute('class', 'item')
+
+    var div2 = document.createElement('div');
+    div2.setAttribute('class', 'picture');
+
+    var img = document.createElement('img')
+    img.src=product.img_src;
+
+    div2.append(img);
+
+    var div3= document.createElement('div');
+    div3.setAttribute('class', 'rating');
+
+    var p1= document.createElement('p')
+    p1.textContent=product.name;
+
+    var br= document.createElement('br');
+    var p2= document.createElement('p')
+    p2.textContent=product.rating;
+
+    div3.append(p1,br,p2);
+
+    div.append(div2,div3);
+
+     products.append(div)
+     console.log(products)
     
 
 })
