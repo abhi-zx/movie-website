@@ -6,9 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-       
+       <style>
+           body{
+               background-color:#2e3035;
+           }
+             .container { 
+            width: 100%;
+        }
+        .container img{
+            width: 100%;
+            height: 300px
+        }
+        .product{
+            display: grid;
+            margin-top: 10px;
+            grid-gap: 15px;
+            grid-template-columns: auto auto auto;
+           justify-content:center;
+           
+        }
+        .item {
+            width: 250px;
+            height: 300px;
+            background-color: #2e3035;
+            box-shadow: 0 2px 4px 0 rgb(0 0 0 / 40%);
+        }
+       </style>
 </head>
 <body>
+    <!-- Nav-Bar -->
     <div class="navbar">
         <div class="nav">
             <div class="logo">
@@ -34,5 +60,50 @@
             </div>
         </div>
     </div>
+    <div id='abc' class="container">
+        <!-- <img id='sld'> -->
+    </div>
+    <!-- product area -->
+<div class="product">
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+</div>
+    <script>
+        counter=0;
+        var arr=["https://bingeddata.s3.amazonaws.com/uploads/2021/08/Netflix-Starnger-Things-1.jpg",
+        "https://cdn.thetealmango.com/wp-content/uploads/2021/08/13-reasons-why.jpg",
+        "https://images.indianexpress.com/2018/01/breaking-bad-7591.jpg",
+        "https://images.news18.com/ibnlive/uploads/2021/05/1621397060_the-family-man-s2-1.jpg?im=FitAndFill,width=1200,height=675"
+
+        ]
+        var container = document.getElementById('abc')
+        console.log(container)
+        function slideshow(){
+            // var container = document.getElementsByClassName('container')
+        
+             
+            setInterval(function(){
+                container.innerHTML=null
+                var img = document.createElement('img')
+            img.src=arr[counter];
+            counter++;
+            container.append(img)
+            if(counter==4)
+            counter=0;
+
+            }, 3000);
+
+        }
+        slideshow();
+
+    </script>
 </body>
+<script src="product.js"></script>
 </html>
